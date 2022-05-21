@@ -13,7 +13,7 @@ export default function About(props) {
   };
 
   // make an initial call for the data inside a useEffect
-  useEffect(() => getAboutData(), []);
+  useEffect(() => {getAboutData()}, []);
 
   const loaded = () => (
     <div>
