@@ -21,8 +21,8 @@ console.log(projects)
   const loaded = () => {
     return projects.map((project) => (
       <div>
-        <h1>{project.name}</h1>
-        <img src={project.bigImage} />
+        <h1 key={project.key}>{project.name}</h1>
+        <img className="project--image" src={project.bigImage} alt={`{project.name} + ' ' + App`}/>
         <a href={project.git}>
           <button>Github</button>
         </a>
