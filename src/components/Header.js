@@ -1,22 +1,22 @@
+import { toBePartiallyChecked } from "@testing-library/jest-dom/dist/matchers";
 import { Link } from "react-router-dom";
 
 export default function Header(props) {
   //inline style for the nav tag
   const navStyle = {
     display: "flex",
-    justifyContent: "space-around",
-    border: "3px solid black",
+    justifyContent: "center",
+    background: "black",
     padding: "8px",
-    width: "90%",
     margin: "auto",
+    fontFamily: ""
   };
 
   return (
     <header>
-      <h1>My Portfolio Page</h1>
       <nav style={navStyle}>
-        <Link to="/">HOME</Link>
-        <Link to="/about">ABOUT</Link>
+        <Link to="/" className="home-link">HOME</Link>
+        <Link to="/about" className="about-link">ABOUT</Link>
         <Link to="/projects">PROJECTS</Link>
       </nav>
     </header>

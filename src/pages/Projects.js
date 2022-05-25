@@ -19,20 +19,29 @@ export default function Projects(props) {
 console.log(projects)
   // define a function that will return the JSX needed once we get the data
   const loaded = () => {
-    return projects.map((project) => (
-      <div>
-        <h1 key={project.key}>{project.name}</h1>
-        <img className="project--image" src={project.bigImage} alt={`{project.name} + ' ' + App`}/>
-        <a href={project.git}>
-          <button>Github</button>
-        </a>
-        <a href={project.live}>
-          <button>live site</button>
-        </a>
+    return (
+      <div className="project--grid">
+        {projects.map((project) => (
+          <div>
+            <img
+              className="project--image"
+              src={project.thumb}
+              alt={project.name}
+            />
+          </div>
+        ))}
       </div>
-    ));
+    );
   };
 
   return projects ? loaded() : <h1>Loading...</h1>;
 }
 
+
+        {/* <h1 key={project.key}>{project.name}</h1> */}
+        {/* <a href={project.git}>
+          <button>Github</button>
+        </a>
+        <a href={project.live}>
+          <button>live site</button>
+        </a> */}

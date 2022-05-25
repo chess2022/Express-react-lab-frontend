@@ -1,38 +1,67 @@
 .App {
   text-align: center;
+  font-family: 'Red Hat Display', sans-serif;   
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.home-page {
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  object-fit: cover;
+  overflow: hidden;
+  transform: translateX(-50%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.home-text {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
+  font-family: 'Archivo Black', sans-serif;
+  text-shadow: 0 0 5 black;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  font-size: 6vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+  font-size: 4vh;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.home-link {
+  margin-right: auto;
+}
+
+.about-link {
+  margin-right: 20px;
+}
+
+.project--grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+  justify-content: center;
+  margin-top: 100px;
+  
+
+}
+
+.project--image {
+  width: 175px;
+  object-fit: cover;
+  border-radius: 9px;
+  border: 1pt solid rgb(188, 187, 187);
 }
