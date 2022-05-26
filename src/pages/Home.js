@@ -1,4 +1,5 @@
 import bgVideo from "../images/background_vid.mp4"
+import React from "react";
 
 export default function Home(props) {
   return (

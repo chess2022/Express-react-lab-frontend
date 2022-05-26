@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import React from "react";
 
 
 export default function About(props) {
@@ -17,7 +18,7 @@ export default function About(props) {
 
   const loaded = () => (
     <div>
-      <img src={about.headshot} />
+      <img src={about.headshot} alt={about.name}/>
       <h2>{about.name}</h2>
       <h3>{about.email}</h3>
       <p>{about.bio}</p>

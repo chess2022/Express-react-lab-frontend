@@ -1,4 +1,7 @@
 import './App.css';
+import React from 'react';
+// import 'bootstrap/dist/css/bootstrap.css'
+
 
 // IMPORT COMPONENTS
 import Header from "./components/Header";

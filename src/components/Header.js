@@ -1,5 +1,5 @@
-import { toBePartiallyChecked } from "@testing-library/jest-dom/dist/matchers";
 import { Link } from "react-router-dom";
+import React from "react";
 
 export default function Header(props) {
   //inline style for the nav tag
