@@ -1,11 +1,24 @@
 import { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import React from "react";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 
 export default function Projects(props) {
+  // state for modal open/close
+  const [modalIsOpen, setModalIsOpen] = useState(false)
   // create state to hold projects
-  const [projects, setProjects] = useState(false);
+  const [projects, setProjects] = useState(null);
+  const customStyles = {
+    content: {
+      top: '35%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      width: '80%',
+      transform: 'translate(-40%, -10%)',
+    }
+  }
 
 
   //create function to make api call
@@ -20,42 +33,42 @@ export default function Projects(props) {
 
   // make an initial call for the data inside a useEffect, so it only happens once on component load
   useEffect(() => {getProjectsData()}, []);
-  // console.log(projects)
+  console.log(projects)
   // define a function that will return the JSX needed once we get the data
   const loaded = () => {
     return (
-      <div className="project--grid">
-        {projects.map((project) => (
-          <div>
-            <Button variant="primary" onClick={() => setProjects(true)}>
+      <>
+        <div className="project--grid">
+          {projects.map(project => (
+            <div className="project" key={project.key}>
               <img
                 className="project--image"
                 src={project.thumb}
                 alt={project.name}
+                onClick={() => {
+                  setProjects(projects.project);
+                  setModalIsOpen(true);
+                }}
               />
-            </Button>
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
         <Modal
-          projects={projects}
-          onHide={() => setProjects(false)}
-          dialogClassName="modal-90w"
-          centered
+          isOpen={modalIsOpen}
+          onRequestClose={() => setModalIsOpen(false)}
+          style={customStyles}
         >
-          <Modal.Body>
-            {projects.map((project) => (
-              <div className="projectModal--text">
-                <img
-                  className="projectModal--image"
-                  src={project.image}
-                  alt={project.name}
-                />
-                <p>{project.description}</p>
-              </div>
-            ))}
-          </Modal.Body>
+            <button className="close" onClick={() => setModalIsOpen(false)}>X</button>
+            <div className="projectModal--text">
+              <img
+                className="projectModal--image"
+                src={projects.image}
+                alt={projects.name}
+              />
+              <p>{projects.description}</p>
+            </div>
         </Modal>
-      </div>
+      </>
     );
   };
 

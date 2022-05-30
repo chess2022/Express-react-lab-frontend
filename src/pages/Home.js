@@ -9,7 +9,6 @@ export default function Home(props) {
         autoPlay
         loop
         muted
-        // height="500"
         width="100%"
         poster="../public/images/video_still.png"
       >
